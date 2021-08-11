@@ -47,18 +47,21 @@ class MainViewModel @Inject constructor(
         getLaunchesPastList()
     }
 
+    fun setLaunchId(id : String) {
+        _launchId.postValue(id)
+    }
 
-
-    private fun getLaunchesPastList() {
+    fun getLaunchesPastList() {
         viewModelScope.launch(Dispatchers.IO) {
+            _launchesPastList.postValue(ResultStatus.Loading())
             val data = repository.fetchLaunchesPastList()
             _launchesPastList.postValue(data)
-            Log.d("MainActivity ", "${data.message}")
         }
     }
 
-    private fun getLaunchDetails(id : String) {
+    fun getLaunchDetails(id : String) {
         viewModelScope.launch(Dispatchers.IO) {
+            _launchDetails.postValue(ResultStatus.Loading())
             val launchDetails = repository.fetchLaunchDetails(id)
            _launchDetails.postValue(launchDetails)
         }

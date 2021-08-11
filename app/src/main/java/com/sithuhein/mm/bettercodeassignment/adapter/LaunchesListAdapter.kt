@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.sithuhein.mm.bettercodeassignment.R
 import com.sithuhein.mm.domain.model.LaunchesPast
+import kotlinx.android.synthetic.main.launches_past_list_item.view.*
 import javax.inject.Inject
 
 class LaunchesListAdapter @Inject constructor() : RecyclerView.Adapter<LaunchesListAdapter.LaunchesListViewHolder>() {
@@ -26,7 +28,16 @@ class LaunchesListAdapter @Inject constructor() : RecyclerView.Adapter<LaunchesL
     }
 
     override fun onBindViewHolder(holder: LaunchesListViewHolder, position: Int) {
-
+        val mLaunchesPast = launchesPast[position]
+        Glide.with(holder.itemView.context)
+            .load(mLaunchesPast.links?.mission_patch)
+            .placeholder(R.drawable.ic_undraw_placeholder)
+            .into(holder.itemView.item_img)
+        holder.itemView.item_name.text = mLaunchesPast.mission_name
+        holder.itemView.item_date.text = mLaunchesPast.launch_date_local
+        holder.itemView.setOnClickListener {
+            onItemClick?.let { onClick -> onClick(mLaunchesPast) }
+        }
     }
 
     override fun getItemCount(): Int = launchesPast.size

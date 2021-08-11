@@ -1,14 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.LaunchDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/details_img"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_undraw_placeholder"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/label_mission_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mission_name"
+        android:layout_below="@id/details_img"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/mission_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/details_img"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        tools:text="Falcon 9"
+        android:textSize="18sp"
+        android:layout_toEndOf="@id/label_mission_name"
+        android:layout_centerHorizontal="true"/>
+
+
+    <TextView
+        android:id="@+id/label_mission_launch_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mission_name"
+        android:text="@string/launch_year"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/mission_launch_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mission_name"
+        android:layout_centerHorizontal="true"
+        tools:text="2019"
+        android:textSize="18sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@id/label_mission_launch_year"/>
+
+    <TextView
+        android:id="@+id/label_launch_success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_mission_launch_year"
+        android:layout_marginStart="20dp"
+        android:text="@string/launch_success"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/launch_success"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/label_launch_success"
+        android:layout_below="@id/mission_launch_year"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        tools:text="Yes"/>
+
+    <TextView
+        android:id="@+id/label_article_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_launch_success"
+        android:layout_marginStart="20dp"
+        android:text="@string/article_link"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/article_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/launch_success"
+        android:layout_toEndOf="@id/label_article_link"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        tools:text="www.google.com/spaceX"
+        android:autoLink="all"/>
+
+    <TextView
+        android:id="@+id/label_wikipedia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/article_link"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:text="@string/wikipedia"/>
+
+    <TextView
+        android:id="@+id/wikipedia_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/article_link"
+        android:layout_toEndOf="@id/label_wikipedia"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        tools:text="www.mm.wikipedia.com/spaceX"
+        android:autoLink="all"/>
+
+    <ProgressBar
+        android:id="@+id/loading_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+</RelativeLayout>
