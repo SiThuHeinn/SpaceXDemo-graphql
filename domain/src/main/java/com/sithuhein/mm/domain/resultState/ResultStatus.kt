@@ -6,6 +6,6 @@ sealed class ResultStatus<T>(
 ) {
     class Loading<T>() : ResultStatus<T>()
     class Success<T>(data: T) : ResultStatus<T>(data)
-    class NetworkConnection<T>(data: T? = null, message: String?) : ResultStatus<T>(null, message)
+    class NetworkConnection<T>(message: String?) : ResultStatus<T>(message = message)
     class Error<T>(message: String?) : ResultStatus<T>(message = message)
 }

@@ -14,6 +14,13 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
+/**
+ *... @author Si Thu Hein
+ *... Repository pattern has been used instead of connecting with UseCases
+ *... in this MVVM design pattern with Clean Architecture
+ *... since I thought that it's just adding one unnecessary step. ( personal point of view )
+ */
 class MainViewModel @Inject constructor(
    private val repository: LaunchesListDataRepository
 ) : ViewModel() {
@@ -45,6 +52,7 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             val data = repository.fetchLaunchesPastList()
             _launchesPastList.postValue(data)
+            Log.d("MainActivity ", "${data.message}")
         }
     }
 

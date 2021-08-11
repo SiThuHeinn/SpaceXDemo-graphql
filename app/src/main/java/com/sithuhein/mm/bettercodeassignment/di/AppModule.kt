@@ -1,13 +1,9 @@
 package com.sithuhein.mm.bettercodeassignment.di
 
-import android.app.Application
+import android.content.Context
 import com.apollographql.apollo.ApolloClient
-import com.sithuhein.mm.data.network.RemoteDataSource
-import com.sithuhein.mm.data.network.RemoteDataSourceImpl
-import com.sithuhein.mm.data.repository.LaunchesListDataRepositoryImpl
+import com.sithuhein.mm.data.utils.NetworkConnection
 import com.sithuhein.mm.data.utils.ResponseInterceptor
-import com.sithuhein.mm.domain.repository.LaunchesListDataRepository
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -38,6 +34,5 @@ class AppModule {
         .serverUrl(API_BASE_URL)
         .okHttpClient(okHttpClient)
         .build()
-
 
 }

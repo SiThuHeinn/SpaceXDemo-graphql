@@ -7,7 +7,7 @@ import com.sithuhein.mm.domain.repository.LaunchesListDataRepository
 import com.sithuhein.mm.domain.resultState.ResultStatus
 import javax.inject.Inject
 
-class LaunchesListDataRepositoryImpl @Inject constructor(
+class LaunchesDataRepositoryImpl @Inject constructor(
     private val remote : RemoteDataSource
 ) : LaunchesListDataRepository {
 

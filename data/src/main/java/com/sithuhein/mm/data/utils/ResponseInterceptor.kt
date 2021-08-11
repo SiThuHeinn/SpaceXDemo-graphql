@@ -1,5 +1,6 @@
 package com.sithuhein.mm.data.utils
 
+import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.Response
 import org.json.JSONObject
@@ -40,7 +41,6 @@ class ResponseInterceptor : Interceptor {
                 } catch (e : Exception) {
                     "Login again!"
                 }
-
                 throw Exception(message)
             }
 
