@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Singleton
 
 
 /**
@@ -21,6 +22,7 @@ import javax.inject.Inject
  *... in this MVVM design pattern with Clean Architecture
  *... since I thought that it's just adding one unnecessary step. ( personal point of view )
  */
+@Singleton //... @Singleton Scope is used as there is only one viewModel in Entire App
 class MainViewModel @Inject constructor(
    private val repository: LaunchesListDataRepository
 ) : ViewModel() {
@@ -43,7 +45,6 @@ class MainViewModel @Inject constructor(
 
     init {
         getLaunchesPastList()
-        getLaunchDetails("109")
     }
 
 

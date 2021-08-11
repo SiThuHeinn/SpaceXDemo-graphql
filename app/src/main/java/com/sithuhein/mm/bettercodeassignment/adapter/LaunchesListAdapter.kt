@@ -9,8 +9,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sithuhein.mm.bettercodeassignment.R
 import com.sithuhein.mm.domain.model.LaunchesPast
+import javax.inject.Inject
 
-class LaunchesListAdapter : RecyclerView.Adapter<LaunchesListAdapter.LaunchesListViewHolder>() {
+class LaunchesListAdapter @Inject constructor() : RecyclerView.Adapter<LaunchesListAdapter.LaunchesListViewHolder>() {
+
+    private var onItemClick : ((launchPast : LaunchesPast) -> Unit)? = null
+
+
+    fun setItemClickListener(onClick : (launchesPast : LaunchesPast) -> Unit) {
+        onItemClick = onClick
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LaunchesListViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.launches_past_list_item, parent, false)
