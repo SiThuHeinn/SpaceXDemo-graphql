@@ -1,0 +1,12 @@
+query LaunchesPastList {
+    launchesPast(limit: 20) {
+        id
+        launch_date_local
+        mission_name
+        links {
+            wikipedia
+            article_link
+            mission_patch
+        }
+    }
+}
